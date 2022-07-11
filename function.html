@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const square = function(x){
+        return x * x;
+    };
+
+    const makeNoise = function(){
+        console.log("Pling!");
+    };
+    makeNoise();
+
+    const power = function(base, exponent){
+        let result = 1;
+        for (let count = 0; count < exponent; count++){
+            result *= base;
+        }
+        return result;
+    };
+    console.log(power(2, 10));
+
+    let x = 10;
+    if (true){
+        let y = 20;
+        var z = 30;
+        console.log(x + y + z);
+    }
+    console.log(x + z);
+
+
+
+    
+
+    const halve = function(n){
+        return n / 2;
+    };
+    let n = 10;
+    console.log(halve(100));
+    console.log(n);
+
+
+
+// Nested Scope
+
+    const hummus = function(factor){
+        const ingredient = function(amount, unit, name){
+            let ingredientAmount = amount * factor;
+            if (ingredientAmount > 1){
+                unit += "s";
+            }
+            console.log(`${ingredientAmount} ${unit} ${name}`);
+        };
+        ingredient(1, "can", "chickpeas");
+        ingredient(0.25, "cup", "tahini");
+        ingredient(0.25, "cup", "lemon juice");
+        ingredient(1, "cloves", "garlic");
+        ingredient(2, "tablespoon", "olive oil");
+        ingredient(0.5, "teaspoon", "cumin");
+    };
+
+
+    console.log("The future says:", future());
+    function future(){
+        return "You'll never have flying cars";
+    }
+
+
+
+// Arrow function (=>)
+    const power1 = (base1, exponent1) => {
+        let result1 = 1;
+        for (let count1 = 0; count1 < exponent1; count1++){
+            result *= base;
+        }
+        return result;
+        // console.log(power1(2, 10));
+    };
+    
+
+    function greet(who){
+        console.log("Hello " + who);
+    }
+    greet("Harry");
+    console.log("Bye");
+
+
+    // infinite stack
+
+    // function chicken(){
+    //     return egg();
+    // }
+    // function egg(){
+    //     return chicken();
+    // }
+    // console.log(chicken() + " came first.");
+
+
+
+    // optional arguments
+    function minus(a, b){
+        if (b === undefined) return -a;
+        else return a - b;
+    }
+    console.log(minus(10));
+    console.log(minus(10, 5));
+
+
+    // closure
+
+    function wrapValue(n){
+        let local = n;
+        return () => local;
+    }
+
+    let wrap1 = wrapValue(1);
+    let wrap2 = wrapValue(2);
+    console.log(wrap1());
+    console.log(wrap2());
+
+    // multiplier
+  
+    
+    function multiplier(factor){
+        return number => number * factor;
+    }
+
+    let twice = multiplier(2);
+    console.log(twice(6));
+
+
+    // recursion
+    function power2(base2, exponent2){
+        if (exponent2 == 0){
+            return 1;
+        } else {
+            return base2 * power2(base2, exponent2 - 1);
+        }
+    }
+    console.log(power2(2,5));
+
+    // recursive solutions
+
+    function findSolution(target){
+        function find(current, history){
+            if (current == target){
+                return history;
+            }else if (current > target){
+                return null;
+            }else{
+                return find(current + 5, `(${history} + 5)`) ||
+                       find(current * 3, `(${history} * 3)`);
+            }
+        }
+        return find(1, "1");
+    }
+    console.log(findSolution(13));
+
+
+    // growing functions
+
+    function printFarmInventory(cows, chickens){
+        let cowString = String(cows);
+        while (cowString.length < 3){
+            cowString = "0" + cowString;
+        }
+        console.log(`${cowString} Cows`);
+        let chickenString = String(chickens);
+        while (chickenString.length < 3){
+            chickenString = "0" + chickenString;
+        }
+        console.log(`${chickenString} Chickens`);
+    }
+    printFarmInventory(5,55);
+
+    // for more than just cow and chickens
+
+    function printZeroPaddedWithLabel(number, label){
+        let numberString = String(number);
+        while (numberString.length < 3){
+            numberString = "0" + numberString;
+        }
+        console.log(`${numberString} ${label}`);
+    }
+    function printFarmInventory1(cows1, chickens1, pigs){
+        printZeroPaddedWithLabel(cows1, "Cows");
+        printZeroPaddedWithLabel(chickens1, "Chickens");
+        printZeroPaddedWithLabel(pigs, "Pigs");
+    }
+    printFarmInventory1(45, 59, 9);
+
+    // more simple code for the above problem
+
+    function zeroPad(number, width){
+        let string = String(number);
+        while (string.lenght < width){
+            string = "0" + string;
+        }
+        return string;
+    }
+    function printFarmInventory(cows, chickens, pigs){
+        console.log(`${zeroPad(cows, 3)} Cows`);
+        console.log(`${zeroPad(chickens, 3)} Chickens`);
+        console.log(`${zeroPad(pigs, 3)} Pigs`);
+    }
+    printFarmInventory(5,16,82);
+
+
+    //exercises
+    // let min = function(a, b){
+    //     if(a < b){
+    //         return a;
+    //     }else {
+    //         return b;
+    //     }
+    // }
+
+    // console.log(min(0, -10));
+
+    function min(a, b){
+        if (a < b){
+            return a;
+        }else {
+            return b;
+        }
+    }
+    console.log(min(50, 15))
+
+
+    // positive even numbers
+
+    let even = function(N){
+    if(N >= 0){
+    if(N == 0){
+        console.log("true");
+    }else if (N % 2 == 0){
+        console.log("true");
+    }else {
+        console.log("false");
+    }
+}else{
+    console.log("??");
+}
+}
+even(-10);
+even(50);
+even(75);
+
+// bean counting
+
+function countLetters(word, letter) {
+    let count = 0;
+    for (let num = 0; num < word.length; num++) {
+        if(word[num] == letter) {
+            count += 1;
+        }
+    }
+    return count;
+}
+console.log(countLetters("BBC", "B"));
+console.log(countLetters("kakkerlak", "k"));
+    
+</script>
