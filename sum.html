@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+
+    // The sum of a range
+
+
+    
+    function range(start, end, step){
+    var numbersToShow = [];
+    for (let i = 0 ; i <= 100000;){{
+        if (step > 0){ 
+            i = i + step;}else{
+                i = i + 1;
+            }}
+        if (i >= start && i <= end){
+            numbersToShow.push(i);
+        }
+    }
+    return numbersToShow;
+    }
+    function sum(numbersToShow){
+        let total = 0;
+        for (let value of numbersToShow){
+            total += value;
+        }
+        return total;
+    }
+
+    console.log(sum(range(1, 50, 5)));
+
+
+    
+function range(start, end, step = start < end ? 1 : -1) {
+    let array = [];
+
+    if (step > 0) {
+for (let i = start; i <= end; i += step) array.push(i);
+  } else {
+for (let i = start; i >= end; i += step) array.push(i);
+  }
+  return array;
+}
+
+function sum(array) {
+  let total = 0;
+  for (let value of array) {
+    total += value;
+  }
+  return total;
+}
+  
+
+</script>
