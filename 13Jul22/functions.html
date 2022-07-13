@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    // reversing an array
+
+
+
+// reversing array
+
+function reverseArray1(array1){
+    
+    let reversedArray1 = [];
+    for (let i = array1.length - 1; i >= 0; i--){
+       reversedArray1.push(array1[i]);
+    }
+    console.log(reversedArray1);
+}
+reverseArray1([2, 5, 6, 13, 50,"a"]);
+
+
+//            or
+
+function reverseArray2(array2){
+    
+    let reversedArray2 = [];
+    for (let i = 0; i < array2.length; i++){
+       reversedArray2.unshift(array2[i]);
+    }
+    console.log(reversedArray2);
+}
+reverseArray2([2, 5, 6, 13, 50,"a"]);
+
+
+//   or
+
+function reverseArray3(array3){
+    
+    let reversedArray3 = [];
+    for (let element of array3){
+       reversedArray3.unshift(element);
+    }
+    console.log(reversedArray3);
+}
+reverseArray3([2, 5, 6, 13, 50,"a"]);
+
+
+
+
+//                 reverse array in place
+
+function reverseArrayInPlaceF(arrayValue){
+let outPut = [];
+for(let i = 0; i < (arrayValue.length/2); i++){
+    temp = arrayValue[i];
+    arrayValue[i] = arrayValue[arrayValue.length - (i + 1)];
+    arrayValue[arrayValue.length - (i + 1)] = temp;
+}
+console.log(arrayValue);
+}
+
+let arrayValue = [1, 3, 5, 7, 9];
+reverseArrayInPlaceF(arrayValue);
+
+//                list
+
+let list = {
+    value: 1,
+    rest: {
+        value: 2,
+        rest: {
+            value: 3,
+            rest: {
+                value: 4,
+                rest: {
+                    value: 5,
+                    rest: null
+                }
+            }
+        }
+    }
+}
+
+console.log(list);
+
+
+
+function arrayToList(array){
+let listLastItem = null;
+for (let i = array.length - 1; i >= 0; i--){
+   listLastItem = {value: array[i], rest:listLastItem};
+   }
+   return listLastItem;
+
+}
+
+console.log(arrayToList([10, 20, 30]));
+
+
+function listToArray(list){
+    let arrayToDisplay = [];
+    for (let node = list; node; node = node.rest) {
+        arrayToDisplay.push(node.value);
+    }
+    console.log(arrayToDisplay);
+}
+listToArray( {
+    value: 1,
+    rest: {
+        value: 2,
+        rest: {
+            value: 3,
+            rest: {
+                value: 4,
+                rest: {
+                    value: 5,
+                    rest: null
+                }
+            }
+        }
+    }
+}
+)
+
+listToArray(arrayToList([10, 20, 30]));
+
+function prepend(value, list) {
+  return {value, rest: list};
+}
+console.log(prepend(10, prepend(20, null)));
+
+
+
+
+
+
+
+</script>
