@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function deepEqual (a, b){
+        if (a === b) return true;
+
+        if(a == null || typeof a != "object" ||
+           b == null || typeof b != "object") return false;
+
+        let keysA = Object.keys(a), keysB = Object.keys(b);
+
+        if(keysA.length != keysB.length) return false;
+
+        for(let key of keysA){
+            if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+
+        }
+        return true;
+    }
+
+    let obj = {here: {is: "an"}, object: 2}
+    console.log(deepEqual(obj, obj));
+
+    console.log(deepEqual(obj, {here: 1, object: 2}));
+
+    console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+
+
+    function repeat(n, action){
+        for(let i = 0; i < n; i++){
+            action(i);
+        }
+    }
+
+    repeat(3, console.log);
+
+    let labels = [];
+    repeat(5, i => {
+        labels.push(`Unit ${i + 1}`);
+    });
+    console.log(labels);
+
+    let roseDragon = "🌹🐉";
+    for (let char of roseDragon){
+        console.log(char);
+    }
+
+    // function add(a, b){
+    //     let result = a + b;
+    //     return result;
+
+    // }
+
+
+    // function addition(a, b){
+    //  console.log(a, b, result);
+    //     return result=>{result=a+b;} //function Res(result){a+b}
+                
+    // }
+    // let Add = addition(2,5);
+    // console.log(Add(result));
+
+    // const add = (a, b) => {
+
+
+    //     return m => a + b;
+    // }
+
+    // const inner = add(3,4);
+    // console.log(inner(8))
+
+    
+    // sayHi();
+
+    // const sayHelloAndHi = (a, h) => {
+    //     console.log(a);
+    // const sayHi = (m, hi) => {
+    //     console.log('Hiii', a , m, hi, h);
+    // }
+
+    //     return sayHi;
+    // }
+
+    // const sayHiFun = sayHelloAndHi('mary', 'fdhgjhgjhs');
+    // sayHiFun('metilda', 'student');
+
+    // console.log(sayHelloAndHi()());
+
+    const logger = (...a) => {
+        console.log(a)
+    }
+
+    logger(['hi', 'hello', 'ji', 'heyyy', 'sdhjgfj'])
+
+
+</script>
