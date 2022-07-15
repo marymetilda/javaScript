@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function flaten(arrays){
+        let resultArray = [];
+        for(let elements of arrays){
+            for(let element of elements){
+                resultArray.push(element)
+            }
+        }
+        return console.log(resultArray);
+    }
+
+    let arrays = [[1, 2, 3], [4, 5], [6]];
+    flaten(arrays);
+
+    //   using reduce function
+
+    let arrays1 = [[1, 2, 3], [4, 5], [6]];
+    console.log(arrays1.reduce((flat, current) => flat.concat(current), []));
+
+
+
+    //   own loop
+
+
+    function loop(num, boundary, process, action1){
+        for(let i = num; boundary(i); i = process(i)){
+            action1(i);
+        }
+    }
+
+
+     loop(3, n => n > 0, n => n - 1, console.log);
+
+
+     //    every
+
+
+    //  function every(array, test){
+    //     let result;
+    //     for(let k of array){
+    //         result = test(k);
+    //         if(result == false){
+    //             break;
+    //         }
+    //     }
+    //     return console.log(result);
+    //  }
+
+    
+
+     function every(array, predicate) {
+  for (let element of array) {
+    if (!predicate(element)) return false;
+  }
+  return true;
+}
+
+console.log(every([1, 3, 5], n => n < 10));
+
+console.log(every([2, 4, 16], n => n < 10));
+
+console.log(every([], n => n < 10));
+
+</script>
