@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call by value</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function one(){
+        var a = 100;
+        two(a);
+        console.log('one', a);
+    }
+
+    function two(a){
+        a = a + 1;
+        console.log('two', a);
+    }
+
+    one();
+
+    // variable as object
+
+    function one1(){
+        var b = {
+            value: 100
+        };
+        two1(b);
+        console.log('one', b.value);
+
+    }
+
+    function two1(b){
+        b.value = b.value + 1;
+        console.log('two', b.value);
+    }
+
+    one1();
+
+
+    function one2(){
+        var a = [100];
+        two2(a);
+        console.log('one', a[0]);
+    }
+
+    function two2(a){
+        a[0] = a[0] + 1;
+        console.log('two', a[0]);
+    }
+
+    one2();
+</script>
