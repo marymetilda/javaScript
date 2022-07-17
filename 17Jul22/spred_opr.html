@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spred operator</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var obj = {
+        a: 1, 
+        b: 2,
+        c: 'Hello'
+    }
+
+    console.log(obj);
+
+    var obj2 = {
+        ...obj
+    }
+
+    console.log(obj2);
+
+
+    //  spred operator for arrays
+
+
+    var a = [1, 2, 3, 4];
+
+    console.log(a);
+
+    var b = [...a];
+
+    console.log(b);
+
+
+    var objA ={
+        a0: 1, 
+        b0: 2,
+        c0: 'Hello'
+    }
+
+    var objB ={
+        a1: 1, 
+        b1: 2, 
+        c1: 'Hello'
+    }
+
+
+    var obj3 ={
+        ...objA,
+        ...objB
+    }
+
+    console.log(obj3);
+
+
+    var x = [1, 2, 3, 4];
+    var y = [6, 7, 8, 9];
+
+    var z = [...x, ...y];
+    
+    console.log(z);
+
+    var objx = {
+        x: 1,
+        y: 2
+    }
+
+    var objy = objx;
+    
+    console.log(objx, objy);
+
+    objy.c = 33;
+
+    console.log(objx, objy);
+
+    objz = {...objx};
+    objz.c1 = 33;
+
+    console.log(objx, objz);
+
+
+</script>
