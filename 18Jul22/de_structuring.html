@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>de, Structuring</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+const obj1 = {
+    name: 'Code Malayalam',
+    place: 'Kerala',
+    rank: 100
+}
+
+function myfunction(){
+
+    // const name = obj1.name;
+    // const place = obj1.place;
+    // const rank = obj1.rank;
+
+    const {
+        name,
+       ...others
+    } = obj1;
+
+    console.log(name, others);
+}
+myfunction();
+
+const marks = [1, 4, 5, 7, 12];
+
+function myfunction1(){
+    const [a, b, ...others] = marks;
+    console.log(a, b);
+    console.log(others);
+    console.log(a, b, others);
+}
+
+myfunction1();
+
+const mark = [1, 2, 3, 4,80];
+
+function myFunction(){
+    const [s, t, u, v, w = false] = mark;
+    console.log(s, t, u, v, w);
+}
+
+myFunction();
+
+const marks1 = [1, 5, 6];
+
+function myFunction1([x, y, z]){
+console.log(x, y, z);
+}
+
+myFunction1(marks1);
+
+
+var obj11 = {
+    name: 'code Malayalam',
+    place: 'kerala',
+    rank: 100
+};
+
+function myFunction11({name, place}){
+    console.log(name, place);
+}
+
+myFunction11(obj11);
+
+
+
+var obj22 = {
+    name: 'code Malayalam',
+    place: 'kerala',
+    rank: 100
+};
+
+function myFunction22(){
+  var [a, b, c] = getvalue();
+  console.log(a, b, c);
+}
+
+function getvalue(){
+    return mark;
+}
+
+myFunction22();
+
+
+var objA ={
+    name: 'Code Malayalam',
+    place: 'Kerala'
+}
+
+var objB ={
+    name: 'Bob',
+    place:'America'
+}
+
+function abc(){
+    var {
+        name, 
+        place
+    } = objA;
+
+    var {
+        name: name2, 
+        place: place2
+    } = objB;
+
+    console.log(name, place, name2, place2);
+}
+
+abc();
+
+
+
+</script>

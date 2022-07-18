@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setters and getters</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+class Button {
+    constructor(name){
+        this.button = document.createElement('button');
+        this.button.innerHTML = name;
+        document.body.appendChild(this.button);
+    }
+
+    setWidth(width){
+        this.button.style.width = width + 'px';
+    }
+
+    setHeight(height){
+        this.button.style.height = height + 'px';
+    }
+}
+
+var b1 = new Button('Click Me!');
+b1.setWidth(100);
+b1.setHeight(100);
+
+//          or
+
+class Button1{
+    constructor(name){
+        this.button = document.createElement('button');
+        this.button.innerHTML = name;
+
+        document.body.appendChild(this.button);
+    }
+
+    set width(width){
+        this.button.style.width = width + 'px';
+    }
+
+    set height(height){
+        this.button.style.height = height + 'px';
+    }
+
+    get width(){
+        return this.button.style.width;
+    }
+    
+    get height(){
+        return this.button.style.height;
+    }
+}
+
+var b1 = new Button1('Click Me!');
+b1.width = 100;
+b1.height = 50;
+console.log(b1);
+console.log(b1.height, b1.width);
+
+var b2 = {
+
+    init(name){
+        this.button = document.createElement('button');
+        this.button.innerHTML = name;
+        document.body.appendChild(this.button);
+    },
+
+    set width(width){
+        this.button.style.width = width + 'px';
+    },
+
+    set height(height){
+        this.button.style.height = height + 'px';
+    },
+
+    get width(){
+        return this.button.style.width;
+    },
+    
+    get height(){
+        return this.button.style.height;
+    }
+}
+
+b2.init('click');
+b2.width = 100;
+b2.height = 50;
+</script>
