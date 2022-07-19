@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="buttonClick()">Click Me!</button>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script>
+    console.log('started');
+
+    function myFetch(url){
+        return new Promise((res, rej) =>{
+            $.ajax({
+            type: 'GET',
+            url: url,
+            success: (msg) => {
+         res(msg);
+        },
+        error: function(xhr, statusText) {
+            rej(statusText);
+        },
+        });
+    })
+    }
+
+   
+
+    // const pr = myFetch('https://jsonplaceholder.typicode.com/todos/1');
+
+    function buttonClick(){
+        pr.then((data) => {
+            console.log(data);
+        }, (err) => {
+            console.log(error);
+        });
+    }
+
+    // console.log(pr);
+
+    console.log('ended');
+
+
+    // console.log('Requesting 1');
+    // const pr = myFetch('https://jsonplaceholder.typicode.com/todos/1');
+
+    // pr.then((data) => {
+    //     console.log(data);
+    //     console.log('Requesting 2');
+    //     const pr = myFetch('https://jsonplaceholder.typicode.com/todos/2');
+
+
+    //     pr.then((data) => {
+    //         console.log(data);
+
+
+    //         console.log('Requesting 3');
+    //         const pr = myFetch('https://jsonplaceholder.typicode.com/todos/3');
+
+    //         pr.then((data) =>{
+    //             console.log(data);
+    //         })
+    //     })
+
+
+    // })
+
+
+    //  chaining
+
+    // console.log('Requesting 1');
+    // const pr = myFetch('https://jsonplaceholder.typicode.com/todos/1');
+
+    // const pr2 = pr.then((data) =>{
+    //     console.log(data);
+    //     console.log('Requesting 2');
+    //     return myFetch('https://jsonplaceholder.typicode.com/todos/2');
+    // });
+
+    // const pr3 = pr2.then((data) =>{
+    //     console.log(data);
+    //     console.log('Requesting 3');
+    //     return myFetch('https://jsonplaceholder.typicode.com/todos/3');
+    // })
+
+    // pr3.then((data) => {
+    //     console.log(data);
+    // })
+
+
+    function getJson(url){
+        return fetch(url)
+            .then((data) => {
+                return data.json();
+            })
+    }
+
+    // console.log('Requesting 1');
+    getJson('https://jsonplaceholder.typicode.com/tods/1')
+        .then((data) => {
+            console.log(data);
+    //         console.log('Requesting 2');
+    //         return getJson('https://jsonplaceholder.typicode.com/todos/2');
+        })
+
+    //     .catch(() => {
+    //         console.log('ERROR:', err);
+    //     })
+
+    // .then((data) => {
+    //     console.log(data);
+    //     console.log('Requesting 3');
+    //     return getJson('https://jsonplaceholder.typicode.com/todos/3');
+    // })
+    // .then((data) => {
+    //     console.log(data);
+    // });
+
+
+
+        ///  catch   :- The function catch is used for error handling
+
+
+        const cache = {
+            name: 'Code Malayalam',
+        }
+
+
+        function getJson(url){
+            
+            if(cache){
+                return convertToPromise(cache);
+            }
+            
+            return fetch(url)
+                .then((data) => {
+                    return data.json();
+                })
+        }
+
+        function convertToPromise(data){
+            return new Promise((res, rej) => {
+                res(data);
+        });
+        }
+
+
+
+
+
+
+
+
+
+</script>
