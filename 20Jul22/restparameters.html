@@ -10,20 +10,15 @@
     
 </body>
 </html>
+
 <script>
-    // function main(){
-    //     var button = document.getElementById('hello');
-    // }
-
-    function fn1() {
-        var number = 12;
-        console.log(number);
+    function test(...total) {
+      const a = total.reduce((sum, current) => sum + current);
+      console.log(a);
     }
 
-    function fn2(){
-        console.log(number);
-    }
 
-    fn1();
-    fn2();
+    const a = [11, 44, 64, 22, 66, 3];
+    test(...a);
+
 </script>
